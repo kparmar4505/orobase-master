@@ -1,4 +1,4 @@
-Code is copied from https://github.com/djocker/orobase for testing purpose only
+ Code is copied from https://github.com/djocker/orobase for testing purpose only.
 
 # Base Image for Oro Apps
 
