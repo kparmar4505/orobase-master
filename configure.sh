@@ -9,7 +9,7 @@ UPLOAD_LIMIT=${UPLOAD_LIMIT-"256"}
 # configure php cli
 sed -i -e "s/;date.timezone\s=/date.timezone = UTC/g" /etc/php/7.1/cli/php.ini
 sed -i -e "s/short_open_tag\s=\s*.*/short_open_tag = Off/g" /etc/php/7.1/cli/php.ini
-sed -i -e "s/memory_limit\s=\s.*/memory_limit = -1/g" /etc/php/7.1/cli/php.ini
+sed -i -e "s/memory_limit\s=\s.*/memory_limit = 512M/g" /etc/php/7.1/cli/php.ini
 sed -i -e "s/max_execution_time\s=\s.*/max_execution_time = 0/g" /etc/php/7.1/cli/php.ini
 
 # configure php fpm
@@ -18,10 +18,10 @@ sed -i -e "s/;date.timezone\s=/date.timezone = UTC/g" /etc/php/7.1/fpm/php.ini
 sed -i -e "s/short_open_tag\s=\s*.*/short_open_tag = Off/g" /etc/php/7.1/fpm/php.ini
 
 sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 1G/g" /etc/php/7.1/fpm/php.ini
-sed -i -e "s/memory_limit\s=\s.*/memory_limit = -1/g" /etc/php/7.1/fpm/php.ini
+sed -i -e "s/memory_limit\s=\s.*/memory_limit = 512M/g" /etc/php/7.1/fpm/php.ini
 sed -i -e "s/post_max_size\s*=\s*8M/post_max_size = 1G/g" /etc/php/7.1/fpm/php.ini
 sed -i -e "s/max_execution_time\s=\s.*/max_execution_time = 300/g" /etc/php/7.1/fpm/php.ini
-
+sed -i -e "s/short_open_tag\s=\s*.*/short_open_tag = Off/g" /etc/php/7.1/fpm/php.ini
 # php-fpm config
 sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.1/fpm/php-fpm.conf
 sed -i -e "s/;catch_workers_output\s*=\s*yes/catch_workers_output = yes/g" /etc/php/7.1/fpm/pool.d/www.conf
